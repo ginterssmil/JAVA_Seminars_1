@@ -63,6 +63,19 @@ public class MainService {
 
 
 
+        // -------------- 4.uzdevums
+     int array_N2 = 20;
+       System.out.println("4.uzdevums");
+        try {
+            double[][] res5 = generateMatrix(array_N2);
+            System.out.println(Arrays.toString(res5));
+            double res6 = getProduct(res5,2,3);
+            System.out.println(res6);
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
     }
 
 
@@ -139,6 +152,42 @@ private static double getMean(double[] array) throws Exception{
     return meanValue;
 }
 
+
+
+
+// ------------- 4.uzdevums -----------------
+    private static double[][] generateMatrix(int N) throws Exception{
+      if (N<=0) {
+            throw new Exception("Nevar izveidot matricu, kura garums ir negativs vai 0");
+        }
+
+
+        double[][] randomNumbers2 = new double[N][N];
+        Random rand = new Random();
+        for (int j = 0 ; j < N ; j++){
+            for (int i = 0 ; i < N ; i++){
+                randomNumbers2[j][i] = 1 + (20 - 1) * rand.nextDouble();
+            }
+        }
+ 
+
+        return randomNumbers2;
+    }
+    private static double getProduct(double[][] matrix, int i, int j) throws Exception{
+            if (matrix == null){//ienakosais masivs ir bez references jeb nav notikusi inicializacija
+        throw new Exception("Ienakosais masivs nav inicializets un tam nav adrese");
+    }
+
+    if (i <= 0 || j<=0){
+    throw new Exception("dotas koordinatas nav pareizas");
+    }
+    if (i > matrix.length || j> matrix[0].length){
+    throw new Exception("vertibas ir arpus matricas");
+    }
+    double result_product = matrix[i][j];
+
+    return result_product;
+    }
 
 
 }
