@@ -64,11 +64,13 @@ public class MainService {
 
 
         // -------------- 4.uzdevums
-     int array_N2 = 20;
+     int array_N2 = 7;
        System.out.println("4.uzdevums");
         try {
             double[][] res5 = generateMatrix(array_N2);
-            System.out.println(Arrays.toString(res5));
+            for (int i = 0 ; i < res5.length ; i++){
+                System.out.println(Arrays.toString(res5[i]));
+            }
             double res6 = getProduct(res5,2,3);
             System.out.println(res6);
         }
